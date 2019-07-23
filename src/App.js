@@ -29,6 +29,8 @@ function App() {
           {({ loading, data, error }) => {
             if (loading) return <h1>LOADING...</h1>;
 
+            if (error) return <h1>OMG OMG OMG OMG OMG THERE'S AN ERROR</h1>
+
             const { bees } = data;
             return bees.map(bee => <h1 key={bee.name} className={bee.isInHive ? 'isInHive':'isNotInHive'}>{bee.name}</h1>)
           }}
