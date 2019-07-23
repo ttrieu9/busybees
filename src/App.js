@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import React from 'react';
 import logo from './logo.svg';
@@ -27,15 +27,12 @@ function App() {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
+        <Query query={GET_ALL_BEES_QUERY}>
+          {({ loading, data, error }) => {
+            
+          }}
+        </Query>
       </div>
     </ApolloProvider>
   );
