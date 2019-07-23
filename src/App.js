@@ -30,7 +30,7 @@ function App() {
         </header>
         <Query query={GET_ALL_BEES_QUERY}>
           {({ loading, data, error }) => {
-            
+            if (loading) return 'Loading...';
           }}
         </Query>
       </div>
