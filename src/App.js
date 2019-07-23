@@ -27,7 +27,7 @@ function App() {
         </header>
         <Query query={GET_ALL_BEES_QUERY}>
           {({ loading, data, error }) => {
-            if (loading) return 'Loading...';
+            if (loading) return <h1>LOADING...</h1>;
 
             const { bees } = data;
             return bees.map(bee => <h1 key={bee.name} className={bee.isInHive ? 'isInHive':'isNotInHive'}>{bee.name}</h1>)
