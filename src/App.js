@@ -1,41 +1,37 @@
 import ApolloClient from 'apollo-boost';
-import { ApolloProvider, Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { ApolloProvider } from 'react-apollo';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import beeList from './views/BeeList';
+import beeDetail from './views/BeeDetail';
+import { View } from 'react-native-web';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const client = new ApolloClient({
   uri: 'https://api-useast.graphcms.com/v1/cjydq0tm126y401f6cg9cijkd/master'
 });
 
-const GET_ALL_BEES_QUERY = gql`
-  {
-    bees {
-      name
-      isInHive
-    }
-  }
-`;
-
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <Query query={GET_ALL_BEES_QUERY}>
-          {({ loading, data, error }) => {
-            if (loading) return <h1>LOADING...</h1>;
-
-            if (error) return <h1>OMG OMG OMG OMG OMG THERE'S AN ERROR</h1>
-
-            const { bees } = data;
-            return bees.map(bee => <h1 key={bee.name} className={bee.isInHive ? 'isInHive':'isNotInHive'}>{bee.name}</h1>)
-          }}
-        </Query>
-      </div>
+        <Router>
+          <View>
+              <div className="App">
+                <header className="App-header">
+                  <Link to={'/'}>
+                    <img src={logo} className="App-logo" alt="logo" />
+                  </Link>
+                </header>
+              </div>
+            <Switch>
+              <Route path="/" exact component={beeList} />
+              <Route path="/bee/:id" exact component={beeDetail} />
+              <Route path="/bee/:id/edit" exact component={null} />
+            </Switch>
+          </View>
+        </Router>
     </ApolloProvider>
   );
 }
