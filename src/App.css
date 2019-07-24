@@ -36,9 +36,9 @@ h1, a {
   text-decoration: none;
 }
 
-/* .bee-container {
-  margin: auto;
-} */
+.pointer {
+  cursor: pointer;
+}
 
 @keyframes App-logo-spin {
   from {

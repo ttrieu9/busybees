@@ -49,7 +49,7 @@ const beeDetail = ({ location: { state : { id } } }) => {
                         <Mutation mutation={CHANGE_HIVE_STATUS_MUTATION}>
                             {(toggleIsInHive, { data }) => {
                                 return (
-                                    <h1 onClick={e => {
+                                    <h1 className={'pointer'} onClick={e => {
                                         e.preventDefault();
                                         toggleIsInHive({ variables: { id, isInHive: !isInHive } })
                                     }}>
