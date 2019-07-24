@@ -33,11 +33,12 @@
 
 h1, a {
   width: fit-content;
+  text-decoration: none;
 }
 
-.bee-container {
+/* .bee-container {
   margin: auto;
-}
+} */
 
 @keyframes App-logo-spin {
   from {

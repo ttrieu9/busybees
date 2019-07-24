@@ -1,10 +1,11 @@
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import React from 'react';
-import logo from './logo.svg';
+import logo from './bee.jpg';
 import './App.css';
 import beeList from './views/BeeList';
 import beeDetail from './views/BeeDetail';
+import beeEdit from './views/BeeEdit';
 import { View } from 'react-native-web';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -28,7 +29,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={beeList} />
               <Route path="/bee/:id" exact component={beeDetail} />
-              <Route path="/bee/:id/edit" exact component={null} />
+              <Route path="/bee/:id/edit" exact component={beeEdit} />
             </Switch>
           </View>
         </Router>
