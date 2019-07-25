@@ -1,5 +1,5 @@
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+
+
 import React from 'react';
 import logo from './bee.jpg';
 import './App.css';
@@ -9,13 +9,9 @@ import { View } from 'react-native-web';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-// const client = new ApolloClient({
-//   uri: 'https://api-useast.graphcms.com/v1/cjydq0tm126y401f6cg9cijkd/master'
-// });
-
 function App() {
   return (
-    // <ApolloProvider client={client}>
+    
         <Router>
           <View>
               <div className="App">
@@ -31,7 +27,7 @@ function App() {
             </Switch>
           </View>
         </Router>
-    // </ApolloProvider>
+
   );
 }
 
